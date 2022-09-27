@@ -4,10 +4,10 @@ import { readFileSync } from 'fs'
 async function main() {
   const lambda = new LambdaClient({ region: 'eu-west-1' })
 
-  const buffer = readFileSync('./dist/lambda.zip')
+  const buffer = readFileSync('./dist/index.zip')
 
   const result = await lambda.send(
-    new UpdateFunctionCodeCommand({ FunctionName: 'typescript-lambda', ZipFile: buffer })
+    new UpdateFunctionCodeCommand({ FunctionName: 'test-lambda', ZipFile: buffer })
   )
 
   console.dir(result)
